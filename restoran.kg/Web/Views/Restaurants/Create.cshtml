@@ -1,0 +1,39 @@
+﻿@model Domain.Models.Restaurant
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Restaurant</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Название" class="control-label"></label>
+                <input asp-for="Название" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Адрес" class="control-label"></label>
+                <input asp-for="Адрес" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Телефон" class="control-label"></label>
+                <input asp-for="Телефон" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ЧасыРаботы" class="control-label"></label>
+                <input asp-for="ЧасыРаботы" class="form-control" />
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

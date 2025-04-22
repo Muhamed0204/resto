@@ -1,0 +1,27 @@
+﻿@model Domain.Models.Restaurant
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Restaurant</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Название</dt>
+        <dd class="col-sm-10">@Model.Название</dd>
+        <dt class="col-sm-2">Адрес</dt>
+        <dd class="col-sm-10">@Model.Адрес</dd>
+        <dt class="col-sm-2">Телефон</dt>
+        <dd class="col-sm-10">@Model.Телефон</dd>
+        <dt class="col-sm-2">Часы работы</dt>
+        <dd class="col-sm-10">@Model.ЧасыРаботы</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
