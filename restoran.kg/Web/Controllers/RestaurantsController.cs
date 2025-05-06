@@ -40,12 +40,24 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(restaurant);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _context.Add(restaurant);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    // Вывод ошибки в консоль (для отладки)
+                    Console.WriteLine($"Ошибка при сохранении данных: {ex.Message}");
+                    ModelState.AddModelError("", "Произошла ошибка при сохранении данных.");
+                }
             }
+
+            // В случае ошибки возвращаем форму с ошибками
             return View(restaurant);
         }
+
 
         public async Task<IActionResult> Edit(int? id)
         {

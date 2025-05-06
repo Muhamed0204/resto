@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Domain.Models.Table>
+
+@{
+    ViewData["Title"] = "Tables List";
+}
+
+<h1>Tables List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Seats</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Restaurant</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Number</td>
+                <td>@item.Seats</td>
+                <td>@item.Location</td>
+                <td>@item.Status</td>
+                <td>@item.Restaurant?.Название</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    Details |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
