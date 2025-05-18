@@ -4,6 +4,7 @@ using Application.Interface.Common;
 using Microsoft.EntityFrameworkCore;
 using Domain.Models;
 
+
 namespace Infrastructure.Data;
 
 public class ApplicationDbContext : IdentityDbContext<IdentityUser>, IApplicationDbContext
