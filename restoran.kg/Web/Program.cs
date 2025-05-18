@@ -4,19 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
-// Добавление аутентификации через Google
-builder.Services.AddAuthentication()
-    .AddGoogle(options =>
 
-    {
-        IConfigurationSection googleAuthNSection =
-            builder.Configuration.GetSection("Google");
-
-        options.ClientId = googleAuthNSection["ClientId"];
-        options.ClientSecret = googleAuthNSection["ClientSecret"];
-        options.CallbackPath = "/signin-google";
-        
-    });
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
